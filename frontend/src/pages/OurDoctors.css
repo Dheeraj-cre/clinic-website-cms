@@ -1,0 +1,37 @@
+.our-doctors {
+  padding: 40px 20px;
+  background: #f9fafb;
+}
+
+.our-doctors h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1976d2;
+}
+
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.doctor-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .doctor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .doctor-grid {
+    grid-template-columns: 1fr;
+  }
+}

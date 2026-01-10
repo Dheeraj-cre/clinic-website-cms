@@ -1,0 +1,63 @@
+/* ==============================
+   Doctor Form – Responsive CSS
+   ============================== */
+
+.doctor-form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Inputs */
+.doctor-form input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Button */
+.doctor-form button {
+  background: #2e7d32;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px;
+  transition: background 0.2s ease;
+}
+
+.doctor-form button:hover {
+  background: #1b5e20;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1000px) {
+  .doctor-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doctor-form button {
+    grid-column: span 2;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 500px) {
+  .doctor-form {
+    grid-template-columns: 1fr;
+  }
+
+  .doctor-form button {
+    width: 100%;
+  }
+}

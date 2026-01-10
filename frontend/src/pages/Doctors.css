@@ -1,0 +1,48 @@
+.doctors-page {
+  padding: 20px;
+}
+
+.doctor-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.doctor-form input,
+.doctor-form button {
+  padding: 10px;
+}
+
+.doctor-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.doctor-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .doctor-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .doctor-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .doctor-form {
+    grid-template-columns: 1fr;
+  }
+  .doctor-list {
+    grid-template-columns: 1fr;
+  }
+}

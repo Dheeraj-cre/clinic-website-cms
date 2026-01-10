@@ -1,0 +1,82 @@
+/* Wrapper */
+.appointment-wrapper {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.appointment-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1976d2;
+}
+
+/* Table-like form */
+.appointment-table {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Row = table row */
+.row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+/* Label = table heading */
+.row label {
+  padding: 14px;
+  background: #f1f5f9;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Input cell */
+.row input {
+  padding: 12px 14px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Submit row */
+.submit-row {
+  grid-template-columns: 1fr;
+  padding: 15px;
+  background: #f9fafb;
+}
+
+.submit-row button {
+  width: 100%;
+  padding: 12px;
+  background: #1976d2;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-row button:hover {
+  background: #125aa0;
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .row label {
+    background: transparent;
+    padding-bottom: 5px;
+  }
+}
