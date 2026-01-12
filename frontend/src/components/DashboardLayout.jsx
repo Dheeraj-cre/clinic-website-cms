@@ -16,9 +16,6 @@ const DashboardLayout = ({ children }) => {
 
       <div className="main-area">
         <header className="top-header">
-          <button onClick={logout} className="logout-btn">
-            Logout
-          </button>
         </header>
 
         <main className="page-content">{children}</main>

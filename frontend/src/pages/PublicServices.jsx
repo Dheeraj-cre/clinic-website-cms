@@ -4,11 +4,22 @@ import "./PublicServices.css";
 
 const PublicServices = () => {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchServices = async () => {
-    const res = await API.get("/services"); 
-    // NOTE: backend should return only active services for public
-    setServices(res.data.filter(s => s.isActive));
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await API.get("/services"); 
+      // NOTE: backend should return only active services for public
+      setServices(res.data.filter(s => s.isActive));
+    } catch (err) {
+      setError("Failed to load services. Please try again later.");
+      console.error("Error fetching services:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -19,18 +30,28 @@ const PublicServices = () => {
     <div className="public-services">
       <h1>Our Services</h1>
 
-      <div className="service-grid">
-        {services.length === 0 && (
-          <p className="empty">No services available at the moment.</p>
-        )}
+      {loading && (
+        <p className="empty">Loading services...</p>
+      )}
 
-        {services.map(service => (
-          <div className="service-card" key={service._id}>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
-          </div>
-        ))}
-      </div>
+      {error && (
+        <p className="empty error">{error}</p>
+      )}
+
+      {!loading && !error && (
+        <div className="service-grid">
+          {services.length === 0 && (
+            <p className="empty">No services available at the moment.</p>
+          )}
+
+          {services.map(service => (
+            <div className="service-card" key={service._id}>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

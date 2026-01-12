@@ -3,6 +3,7 @@ import API from "../services/api";
 import ServiceForm from "../components/ServiceForm";
 import ServiceList from "../components/ServiceList";
 import Loader from "../components/Loader";
+import DashboardLayout from "../components/DashboardLayout";
 import "./Services.css";
 
 const Services = () => {
@@ -30,12 +31,15 @@ const Services = () => {
   }, []);
 
   return (
+    <DashboardLayout>
     <div className="services-page">
       {loading && <Loader />}
       <h1>Services</h1>
       <ServiceForm refresh={fetchServices} />
       <ServiceList services={services} refresh={fetchServices} />
+      
     </div>
+  </DashboardLayout>
   );
 };
 

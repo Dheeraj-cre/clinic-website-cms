@@ -5,13 +5,8 @@ import "./PublicGallery.css";
 const PublicGallery = () => {
   const [images, setImages] = useState([]);
 
-  const fetchImages = async () => {
-    const res = await API.get("/gallery"); // public read
-    setImages(res.data);
-  };
-
   useEffect(() => {
-    fetchImages();
+    API.get("/gallery").then((res) => setImages(res.data));
   }, []);
 
   return (
@@ -23,7 +18,7 @@ const PublicGallery = () => {
       )}
 
       <div className="gallery-grid">
-        {images.map(img => (
+        {images.map((img) => (
           <img
             key={img._id}
             src={`http://localhost:5000${img.imageUrl}`}

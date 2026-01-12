@@ -12,12 +12,16 @@ const Dashboard = () => {
   });
 
   const fetchStats = async () => {
-    const res = await API.get("/stats", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    });
-    setStats(res.data);
+    try {
+      const res = await API.get("/stats", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      });
+      setStats(res.data);
+    } catch (error) {
+      console.error("Failed to fetch stats");
+    }
   };
 
   useEffect(() => {

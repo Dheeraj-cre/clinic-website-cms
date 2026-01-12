@@ -2,18 +2,23 @@ import { useEffect, useState } from "react";
 import API from "../services/api";
 import DoctorForm from "../components/DoctorForm";
 import DoctorList from "../components/DoctorList";
-import "./Doctors.css";
+import DashboardLayout from "../components/DashboardLayout";
+// import "./Doctors.css";
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
 
   const fetchDoctors = async () => {
-    const res = await API.get("/doctors", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    });
-    setDoctors(res.data);
+    try {
+      const res = await API.get("/doctors/admin", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      });
+      setDoctors(res.data);
+    } catch (error) {
+      console.error("Failed to fetch doctors");
+    }
   };
 
   useEffect(() => {
@@ -21,11 +26,13 @@ const Doctors = () => {
   }, []);
 
   return (
-    <div className="doctors-page">
-      <h1>Doctors</h1>
-      <DoctorForm refresh={fetchDoctors} />
-      <DoctorList doctors={doctors} refresh={fetchDoctors} />
-    </div>
+    <DashboardLayout>
+      <div className="doctors-page">
+        <h1>Doctors</h1>
+        <DoctorForm refresh={fetchDoctors} />
+        <DoctorList doctors={doctors} refresh={fetchDoctors} />
+      </div>
+    </DashboardLayout>
   );
 };
 
