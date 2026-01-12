@@ -10,19 +10,24 @@ exports.uploadImage = async (req, res) => {
       return res.status(400).json({ message: "No image file provided" });
     }
 
-    // Upload to Cloudinary
-    const result = await cloudinary.uploader.upload(req.file.path, {
-      folder: "clinic-gallery"
-    });
+    // ✅ Upload buffer to Cloudinary (memoryStorage fix)
+    const result = await cloudinary.uploader.upload(
+      `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`,
+      {
+        folder: "clinic-gallery",
+      }
+    );
 
     // Save URL in DB
     const image = await Gallery.create({
-      imageUrl: result.secure_url
+      imageUrl: result.secure_url,
+      publicId: result.public_id,
     });
 
     res.status(201).json(image);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error("UPLOAD ERROR:", error);
+    res.status(500).json({ message: "Image upload failed" });
   }
 };
 
