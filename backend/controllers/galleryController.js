@@ -10,7 +10,6 @@ exports.uploadImage = async (req, res) => {
       return res.status(400).json({ message: "No image file provided" });
     }
 
-    // ✅ Upload buffer to Cloudinary (memoryStorage fix)
     const result = await cloudinary.uploader.upload(
       `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`,
       {
@@ -18,7 +17,6 @@ exports.uploadImage = async (req, res) => {
       }
     );
 
-    // Save URL in DB
     const image = await Gallery.create({
       imageUrl: result.secure_url,
       publicId: result.public_id,
