@@ -1,13 +1,25 @@
 const Gallery = require("../models/Gallery");
+const cloudinary = require("../config/cloudinary");
 
 // ======================
-// ADMIN: Upload Image
+// ADMIN: Upload Image (Cloudinary)
 // ======================
 exports.uploadImage = async (req, res) => {
   try {
-    const image = await Gallery.create({
-      imageUrl: `/uploads/${req.file.filename}`
+    if (!req.file) {
+      return res.status(400).json({ message: "No image file provided" });
+    }
+
+    // Upload to Cloudinary
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: "clinic-gallery"
     });
+
+    // Save URL in DB
+    const image = await Gallery.create({
+      imageUrl: result.secure_url
+    });
+
     res.status(201).json(image);
   } catch (error) {
     res.status(500).json({ message: error.message });

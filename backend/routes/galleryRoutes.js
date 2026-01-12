@@ -5,25 +5,17 @@ const {
   getPublicImages,
   deleteImage
 } = require("../controllers/galleryController");
-
 const protect = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-// Multer config
-const storage = multer.diskStorage({
-  destination: "uploads/",
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + "-" + file.originalname);
-  }
-});
+//  TEMP storage (Cloudinary ke liye best)
+const upload = multer({ dest: "temp/" });
 
-const upload = multer({ storage });
-
-/* 🔓 USER WEBSITE (PUBLIC) */
+/*  USER WEBSITE (PUBLIC) */
 router.get("/", getPublicImages);
 
-/* 🔐 ADMIN CMS */
+/* ADMIN CMS */
 router.post("/", protect, upload.single("image"), uploadImage);
 router.delete("/:id", protect, deleteImage);
 
