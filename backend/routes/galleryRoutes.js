@@ -9,13 +9,15 @@ const protect = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-//  TEMP storage (Cloudinary ke liye best)
-const upload = multer({ dest: "temp/" });
+// ✅ Cloudinary-ready multer config (NO disk, NO temp folder)
+const upload = multer({
+  storage: multer.memoryStorage(),
+});
 
-/*  USER WEBSITE (PUBLIC) */
+/* PUBLIC (Website) */
 router.get("/", getPublicImages);
 
-/* ADMIN CMS */
+/* ADMIN (CMS) */
 router.post("/", protect, upload.single("image"), uploadImage);
 router.delete("/:id", protect, deleteImage);
 
