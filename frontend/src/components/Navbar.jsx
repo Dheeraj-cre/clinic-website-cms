@@ -75,7 +75,7 @@ const Navbar = () => {
       </header>
 
       {/* Mobile Overlay */}
-      {isOpen && <div className="nav-overlay" onClick={closeMenu}></div>}
+      <div className={`nav-overlay ${isOpen ? 'active' : ''}`} onClick={closeMenu}></div>
     </>
   );
 };
