@@ -8,7 +8,7 @@ dotenv.config();
 const connectDB = require("./config/db");
 connectDB();
 
-const authRoutes = require("./routes/authRoutes"); //  MUST EXIST
+const authRoutes = require("./routes/authRoutes"); // ✅ MUST EXIST
 const doctorRoutes = require("./routes/doctorRoutes");
 const appointmentRoutes = require("./routes/appointmentRoutes");
 const path = require("path");
@@ -24,6 +24,7 @@ app.use("/api/doctors", doctorRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/appointments", appointmentRoutes);
 app.use("/api/stats", statsRoutes);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/gallery", galleryRoutes);
 // test root
 app.get("/", (req, res) => {

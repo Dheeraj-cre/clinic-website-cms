@@ -176,7 +176,7 @@ const Gallery = () => {
               <div className="gallery-card" key={img._id}>
                 <div className="image-wrapper">
                   <img
-                    src={`http://localhost:5000${img.imageUrl}`}
+                    src={`https://clinic-website-cms.onrender.com${img.imageUrl}`}
                     alt="gallery"
                   />
                   <div className="image-overlay">
