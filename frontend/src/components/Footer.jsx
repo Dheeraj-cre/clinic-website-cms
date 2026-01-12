@@ -9,6 +9,10 @@ const Footer = () => {
         <div>
           <h3>City Care Clinic</h3>
           <p>Trusted healthcare with experienced doctors and modern facilities.</p>
+          <Link to="/admin" style={{ textDecoration: "none", color: "inherit" }}>
+              Admin Login
+            </Link>
+          
         </div>
 
         {/* Quick Links */}
