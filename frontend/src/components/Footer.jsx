@@ -8,11 +8,22 @@ const Footer = () => {
         {/* Clinic Info */}
         <div>
           <h3>City Care Clinic</h3>
-          <p>Trusted healthcare with experienced doctors and modern facilities.</p>
-          <Link to="/admin" style={{ textDecoration: "none", color: "inherit" }}>
+          <p>
+            Trusted healthcare with experienced doctors and modern facilities.
+          </p>
+
+          {/* ✅ Admin Login link */}
+          <span
+            style={{
+              cursor: "pointer",
+              color: "#007bff",
+              fontSize: "14px",
+            }}
+          >
+            <Link to="/admin" style={{ textDecoration: "none", color: "inherit" }}>
               Admin Login
             </Link>
-          
+          </span>
         </div>
 
         {/* Quick Links */}
