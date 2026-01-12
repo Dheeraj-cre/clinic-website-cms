@@ -6,7 +6,16 @@ const PublicGallery = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    API.get("/gallery").then((res) => setImages(res.data));
+    const fetchImages = async () => {
+      try {
+        const res = await API.get("/gallery");
+        setImages(res.data);
+      } catch (err) {
+        console.error("Failed to load gallery");
+      }
+    };
+
+    fetchImages();
   }, []);
 
   return (
@@ -21,8 +30,9 @@ const PublicGallery = () => {
         {images.map((img) => (
           <img
             key={img._id}
-            src={`http://localhost:5000${img.imageUrl}`}
+            src={img.imageUrl}
             alt="clinic"
+            loading="lazy"
           />
         ))}
       </div>
