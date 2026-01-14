@@ -34,14 +34,14 @@
   animation: backgroundMove 20s linear infinite;
 }
 
-@keyframes backgroundMove {
+/* @keyframes backgroundMove {
   0% {
     background-position: 0 0, 30px 30px;
   }
   100% {
     background-position: 60px 60px, 90px 90px;
   }
-}
+} */
 
 /* Decorative circles */
 .hero-decorations {
@@ -85,7 +85,7 @@
   animation-delay: 14s;
 }
 
-@keyframes float {
+/* @keyframes float {
   0%, 100% {
     transform: translateY(0) scale(1);
     opacity: 0.3;
@@ -94,7 +94,7 @@
     transform: translateY(-30px) scale(1.1);
     opacity: 0.6;
   }
-}
+} */
 
 /* Hero content */
 .hero-content {
@@ -103,7 +103,7 @@
   animation: fadeInUp 1s ease-out;
 }
 
-@keyframes fadeInUp {
+/* @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -112,7 +112,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
 .hero-title {
   font-size: 48px;
@@ -244,7 +244,7 @@
   --card-index: 2;
 }
 
-@keyframes fadeInScale {
+/* @keyframes fadeInScale {
   from {
     opacity: 0;
     transform: scale(0.9) translateY(20px);
@@ -253,7 +253,7 @@
     opacity: 1;
     transform: scale(1) translateY(0);
   }
-}
+} */
 
 .feature-card::before {
   content: '';
