@@ -1,82 +1,348 @@
-/* Wrapper */
+/* ===== Wrapper ===== */
 .appointment-wrapper {
   max-width: 700px;
   margin: 40px auto;
   padding: 20px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .appointment-title {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: #1976d2;
+  font-size: 32px;
+  font-weight: 700;
 }
 
-/* Table-like form */
+/* ===== Table-like form ===== */
 .appointment-table {
   background: #ffffff;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Row = table row */
+/* ===== Row = table row ===== */
 .row {
   display: grid;
   grid-template-columns: 180px 1fr;
-  align-items: center;
+  align-items: start;
   border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s ease;
+}
+
+.row:hover {
+  background: #f9fafb;
 }
 
 .row:last-child {
   border-bottom: none;
 }
 
-/* Label = table heading */
+/* ===== Label = table heading ===== */
 .row label {
-  padding: 14px;
+  padding: 16px;
   background: #f1f5f9;
   font-weight: 600;
   color: #333;
+  font-size: 14px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-/* Input cell */
-.row input {
-  padding: 12px 14px;
+/* ===== Input cell ===== */
+.row input,
+.row textarea {
+  padding: 14px 16px;
   border: none;
   outline: none;
   font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  background: transparent;
+  transition: background 0.2s ease;
 }
 
-/* Submit row */
+.row input:focus,
+.row textarea:focus {
+  background: #f0f7ff;
+}
+
+.row textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ===== Error messages ===== */
+.row small {
+  grid-column: 2;
+  padding: 0 16px 12px 16px;
+  color: #dc2626;
+  font-size: 12px;
+  display: block;
+}
+
+/* ===== Submit row ===== */
 .submit-row {
   grid-template-columns: 1fr;
-  padding: 15px;
+  padding: 20px;
+  background: #f9fafb;
+  border-bottom: none;
+}
+
+.submit-row:hover {
   background: #f9fafb;
 }
 
 .submit-row button {
   width: 100%;
-  padding: 12px;
-  background: #1976d2;
+  padding: 14px;
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
   color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
+  font-size: 16px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
 }
 
 .submit-row button:hover {
-  background: #125aa0;
+  background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(25, 118, 210, 0.4);
 }
 
-/* ---------- Mobile Responsive ---------- */
+.submit-row button:active {
+  transform: translateY(0);
+}
+
+/* ===== Desktop Large (1024px and up) ===== */
+@media (min-width: 1024px) {
+  .appointment-wrapper {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 30px;
+  }
+
+  .appointment-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .row {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .row label {
+    padding: 18px;
+    font-size: 15px;
+  }
+
+  .row input,
+  .row textarea {
+    padding: 16px 18px;
+    font-size: 15px;
+  }
+}
+
+/* ===== Tablet (768px - 1023px) ===== */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .appointment-wrapper {
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 25px;
+  }
+
+  .appointment-title {
+    font-size: 30px;
+  }
+
+  .row {
+    grid-template-columns: 160px 1fr;
+  }
+}
+
+/* ===== Tablet Small (601px - 767px) ===== */
+@media (max-width: 767px) and (min-width: 601px) {
+  .appointment-wrapper {
+    max-width: 100%;
+    margin: 30px 20px;
+    padding: 20px;
+  }
+
+  .appointment-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .row {
+    grid-template-columns: 140px 1fr;
+  }
+
+  .row label {
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  .row input,
+  .row textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+}
+
+/* ===== Mobile (320px - 600px) ===== */
 @media (max-width: 600px) {
+  .appointment-wrapper {
+    max-width: 100%;
+    margin: 20px 15px;
+    padding: 15px;
+  }
+
+  .appointment-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .appointment-table {
+    border-radius: 8px;
+  }
+
+  /* Stack layout for mobile */
   .row {
     grid-template-columns: 1fr;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0;
+  }
+
+  .row:hover {
+    background: transparent;
   }
 
   .row label {
     background: transparent;
-    padding-bottom: 5px;
+    padding: 12px 16px 6px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1976d2;
+    height: auto;
+  }
+
+  .row input,
+  .row textarea {
+    padding: 6px 16px 12px 16px;
+    font-size: 14px;
+    border: none;
+  }
+
+  .row input:focus,
+  .row textarea:focus {
+    background: transparent;
+  }
+
+  /* Error message adjustment for mobile */
+  .row small {
+    grid-column: 1;
+    padding: 0 16px 12px 16px;
+    margin-top: -6px;
+  }
+
+  .submit-row {
+    padding: 16px;
+    margin-top: 10px;
+  }
+
+  .submit-row button {
+    padding: 13px;
+    font-size: 15px;
+  }
+
+  .row textarea {
+    min-height: 70px;
+  }
+}
+
+/* ===== Extra Small Mobile (below 375px) ===== */
+@media (max-width: 374px) {
+  .appointment-wrapper {
+    margin: 15px 10px;
+    padding: 12px;
+  }
+
+  .appointment-title {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .row label {
+    padding: 10px 14px 5px 14px;
+    font-size: 12px;
+  }
+
+  .row input,
+  .row textarea {
+    padding: 5px 14px 10px 14px;
+    font-size: 13px;
+  }
+
+  .row small {
+    padding: 0 14px 10px 14px;
+    font-size: 11px;
+  }
+
+  .submit-row {
+    padding: 14px;
+  }
+
+  .submit-row button {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* ===== Landscape orientation for mobile ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .appointment-wrapper {
+    margin: 15px auto;
+  }
+
+  .appointment-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .row label {
+    padding: 10px 14px;
+  }
+
+  .row input,
+  .row textarea {
+    padding: 10px 14px;
+  }
+
+  .row textarea {
+    min-height: 60px;
+  }
+
+  .submit-row {
+    padding: 12px;
+  }
+
+  .submit-row button {
+    padding: 10px;
   }
 }

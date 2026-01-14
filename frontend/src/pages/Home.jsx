@@ -7,10 +7,17 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-background"></div>
+        <div className="hero-decorations">
+          <div className="decoration-circle circle-1"></div>
+          <div className="decoration-circle circle-2"></div>
+          <div className="decoration-circle circle-3"></div>
+        </div>
         <div className="hero-content">
           <h1 className="hero-title">Welcome to City Care Clinic</h1>
-          <p className="hero-subtitle">Your health is our priority. Trusted doctors, modern facilities.</p>
-
+          <p className="hero-subtitle">
+            Your health is our priority. Trusted doctors, modern facilities, and
+            compassionate care for you and your family.
+          </p>
           <div className="hero-actions">
             <Link to="/our-doctors" className="btn primary">
               <span>View Doctors</span>
@@ -20,18 +27,20 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className="hero-decorations">
-          <div className="decoration-circle circle-1"></div>
-          <div className="decoration-circle circle-2"></div>
-          <div className="decoration-circle circle-3"></div>
-        </div>
       </section>
 
-      {/* Features */}
+      {/* Features Section */}
       <section className="features">
         <div className="feature-card">
           <div className="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -39,22 +48,42 @@ const Home = () => {
             </svg>
           </div>
           <h3>Qualified Doctors</h3>
-          <p>Experienced specialists across departments.</p>
+          <p>
+            Experienced specialists across multiple departments ready to provide
+            expert medical care.
+          </p>
         </div>
 
         <div className="feature-card">
           <div className="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
             </svg>
           </div>
           <h3>Modern Services</h3>
-          <p>Advanced diagnostics & patient care.</p>
+          <p>
+            Advanced diagnostics and state-of-the-art medical equipment for
+            accurate patient care.
+          </p>
         </div>
 
         <div className="feature-card">
           <div className="feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
               <line x1="16" y1="2" x2="16" y2="6"></line>
               <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -62,7 +91,10 @@ const Home = () => {
             </svg>
           </div>
           <h3>Easy Appointments</h3>
-          <p>Quick and simple booking process.</p>
+          <p>
+            Quick and simple online booking process. Schedule your visit in just
+            a few clicks.
+          </p>
         </div>
       </section>
     </div>
