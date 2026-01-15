@@ -72,7 +72,7 @@ const AdminLogin = () => {
               <input
                 id="email"
                 type="email"
-                placeholder="admin@cityclinic.com"
+                placeholder="admin@clinic.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -91,7 +91,7 @@ const AdminLogin = () => {
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
+                placeholder="admin123"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
