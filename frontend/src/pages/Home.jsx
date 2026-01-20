@@ -97,6 +97,82 @@ const Home = () => {
           </p>
         </div>
       </section>
+
+      {/* Services Section */}
+      <section className="services">
+        <h2 className="section-title">Our Medical Services</h2>
+        <p className="section-subtitle">
+          Comprehensive healthcare services tailored for you and your family.
+        </p>
+
+        <div className="services-grid">
+          <div className="service-card">
+            <h3>General Medicine</h3>
+            <p>
+              Diagnosis and treatment for common illnesses with personalized care.
+            </p>
+          </div>
+
+          <div className="service-card">
+            <h3>Pediatrics</h3>
+            <p>
+              Complete healthcare services for infants, children, and adolescents.
+            </p>
+          </div>
+
+          <div className="service-card">
+            <h3>Dental Care</h3>
+            <p>
+              Advanced dental treatments for healthy teeth and confident smiles.
+            </p>
+          </div>
+
+          <div className="service-card">
+            <h3>Diagnostics</h3>
+            <p>
+              Accurate lab tests and reports using modern diagnostic equipment.
+            </p>
+          </div>
+        </div>
+
+        <Link to="/services" className="btn primary services-btn">
+          <span>View All Services</span>
+        </Link>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials">
+        <h2 className="section-title">What Our Patients Say</h2>
+
+        <div className="testimonial-grid">
+          <div className="testimonial-card">
+            <p>
+              "Excellent doctors and friendly staff. The appointment process was
+              smooth and hassle-free."
+            </p>
+            <h4>— Rahul Sharma</h4>
+            <span>⭐⭐⭐⭐⭐</span>
+          </div>
+
+          <div className="testimonial-card">
+            <p>
+              "Very clean clinic and professional service. I felt well taken care of
+              throughout my visit."
+            </p>
+            <h4>— Anjali Verma</h4>
+            <span>⭐⭐⭐⭐⭐</span>
+          </div>
+
+          <div className="testimonial-card">
+            <p>
+              "Highly recommend City Care Clinic. Doctors are knowledgeable and very
+              supportive."
+            </p>
+            <h4>— Amit Singh</h4>
+            <span>⭐⭐⭐⭐⭐</span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
