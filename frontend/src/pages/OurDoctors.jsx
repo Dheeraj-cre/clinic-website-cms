@@ -11,7 +11,7 @@ const OurDoctors = () => {
     try {
       setLoading(true);
       setError(null);
-      const res = await API.get("/doctors"); // public read
+      const res = await API.get("/doctors");
       setDoctors(res.data);
     } catch (err) {
       setError("Failed to load doctors. Please try again later.");
@@ -29,13 +29,9 @@ const OurDoctors = () => {
     <div className="our-doctors">
       <h1>Our Doctors</h1>
 
-      {loading && (
-        <p className="loading">Loading doctors...</p>
-      )}
+      {loading && <p className="loading">Loading doctors...</p>}
 
-      {error && (
-        <p className="empty error">{error}</p>
-      )}
+      {error && <p className="empty error">{error}</p>}
 
       {!loading && !error && (
         <div className="doctors-grid">
@@ -52,13 +48,15 @@ const OurDoctors = () => {
               <div className="doctor-details">
                 <h3 className="doctor-name">Dr. {doc.name}</h3>
                 <p className="doctor-spec">{doc.specialization}</p>
-                
+
                 <div className="doctor-info">
                   <span>
-                    <strong>Qualification:</strong> {doc.qualification}
+                    <strong>Qualification</strong>
+                    {doc.qualification}
                   </span>
                   <span>
-                    <strong>Experience:</strong> {doc.experience} Years
+                    <strong>Experience</strong>
+                    {doc.experience} {doc.experience === 1 ? 'Year' : 'Years'}
                   </span>
                 </div>
               </div>
