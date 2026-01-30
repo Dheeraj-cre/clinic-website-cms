@@ -146,7 +146,7 @@ const Gallery = () => {
         {/* Gallery Grid */}
         {images.length === 0 ? (
           <div className="empty-state">
-            <div className="empty-state-icon">🖼️</div>
+            <div className="empty-state-icon"></div>
             <p className="empty-state-text">No images yet</p>
             <p className="empty-state-subtext">Upload your first image to get started</p>
           </div>

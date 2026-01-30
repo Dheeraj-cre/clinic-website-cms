@@ -12,7 +12,7 @@ const Footer = () => {
             Trusted healthcare with experienced doctors and modern facilities.
           </p>
 
-          {/* ✅ Admin Login link */}
+          {/*  Admin Login link */}
           <span
             style={{
               cursor: "pointer",

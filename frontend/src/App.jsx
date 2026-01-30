@@ -23,7 +23,7 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/* 🌐 USER WEBSITE (Public with Layout) */}
+        {/*  USER WEBSITE (Public with Layout) */}
         <Route element={<UserLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/our-doctors" element={<OurDoctors />} />
@@ -32,7 +32,7 @@ function App() {
           <Route path="/book-appointment" element={<BookAppointment />} />
         </Route>
 
-        {/* 🔐 ADMIN CMS */}
+        {/*  ADMIN CMS */}
         <Route path="/admin" element={<AdminLogin />} />
 
         <Route
@@ -80,7 +80,7 @@ function App() {
           }
         />
 
-        {/* 🚫 Fallback */}
+        {/*  Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />
 
       </Routes>
