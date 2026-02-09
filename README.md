@@ -65,7 +65,7 @@ Frontend Development: 4 days
 Backend & APIs: 4 days
 Authentication & Security: 2 days
 Testing & Deployment: 2 days
-Total Time: 12–14 days
+Total Time: 30 days
 
 9. Future Enhancements
 Online payments, WhatsApp/SMS notifications, multi-admin roles, analytics dashboard.
